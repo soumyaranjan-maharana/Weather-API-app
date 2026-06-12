@@ -33,7 +33,7 @@ class InputFrame(tk.Frame):
             self.label2.grid(row = 3,column = 0,padx = 5,pady = 5)
             
         def fetch_weather(self,city_name):
-            api_key = "3806d8e45ebc87c04a04bc9bd4573bbd"
+            api_key = "YOUR_API_KEY_HERE"
 
             url = f"https://api.openweathermap.org/data/2.5/weather?q={city_name}&appid={api_key}&units=metric"
             
