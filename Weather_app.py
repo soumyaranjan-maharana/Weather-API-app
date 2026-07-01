@@ -35,12 +35,12 @@ class InputFrame(tk.Frame):
         def fetch_weather(self,city_name):
             api_key = "YOUR_API_KEY_HERE"
 
-            url = f"https://api.openweathermap.org/data/2.5/weather?q={city_name}&appid={api_key}&units=metric"
+                       
+            response = rq.get(f"https://api.openweathermap.org/data/2.5/weather?q={city_name}&appid={api_key}&units=metric")
             
-            response = rq.get(url)
-            data = response.json()
             
-            if data["cod"] == 200:
+            if response.status_code == 200:
+                data = response.json()
                 self.weather = data["weather"][0]["main"]
                 self.temp = data["main"]["temp"]
                 self.hum = data["main"] ["humidity"]
